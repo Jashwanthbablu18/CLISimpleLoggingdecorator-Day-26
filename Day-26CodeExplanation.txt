@@ -1,0 +1,53 @@
+The provided code defines a Python decorator named simple_logger, which is used to log the execution of functions. A decorator in Python is a special function that can modify or enhance the behavior of other functions. Here's a detailed explanation of the code:
+
+simple_logger Decorator
+
+1. Definition:
+   - simple_logger(func) is a decorator function that takes another function func as its argument.
+
+2. Wrapper Function:
+   - Inside simple_logger(), a nested function wrapper(*args, kwargs) is defined. This function wraps around the original function func.
+   - The *args and kwargs allow the wrapper to accept any number of positional and keyword arguments, respectively.
+
+3. Logging Behavior:
+   - Before calling the original function, it prints a message indicating the start of the function execution, including the function's 
+     name and its arguments.
+   - The original function func is then called with the provided arguments, and its return value is stored in result.
+   - After the function execution, it prints another message indicating completion and displays the return value.
+   - A separator line ("-" * 40) is printed for clarity in the console output.
+
+4. Return:
+   - The wrapper function returns the result obtained from calling the original function.
+
+5. Returning the Wrapper:
+   - The simple_logger function returns the wrapper function, effectively replacing the original function with this enhanced version.
+
+Example Functions
+
+1. greet(name):
+   - A simple function that takes a name as input and returns a greeting message.
+
+2. add(a, b):
+   - A function that takes two numbers and returns their sum.
+
+3. divide(x, y):
+   - A function that divides x by y. It includes a check to prevent division by zero, returning a specific message if y is zero.
+
+Application of Decorator
+
+- Each of these functions (greet, add, and divide) is decorated with @simple_logger.
+- This means whenever these functions are called, they will first execute the logging behavior defined in the wrapper, then perform 
+  their original task, and finally log their output.
+
+Main Function
+- The main() function demonstrates usage by calling each decorated function with specific arguments.
+- It includes calls to:
+  - greet("Jashwanth")
+  - add(10, 5)
+  - divide(8, 2)
+  - divide(5, 0)
+
+What I've learnt:
+- A decorator is a design pattern that allows us to add new functionality to an existing object or function without modifying its structure. 
+  Decorators are often used to wrap another function in order to extend its behaviour.
+- The decorator is called with '@' followed by function name.
